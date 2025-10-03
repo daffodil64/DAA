@@ -1,0 +1,37 @@
+#include <limits.h> 
+#include <stdio.h>
+#define MAX 20
+int V, E;
+int graph[MAX][MAX];
+#define INFINITY 99999
+void printPath(int parent[], int j, int startnode) {
+    int path[MAX];
+    int index = 0;
+
+    while (j != -1 && j != startnode) {
+        path[index++] = j;
+        j = parent[j];
+    }
+
+    for (int i = 0; i < index; i++) {
+        printf("%d<-", path[i]);
+    }
+    printf("%d", startnode);
+}
+void dijkstra(int G[MAX][MAX], int n, int startnode) {
+	
+	int dist[MAX], visited[MAX], parent[MAX];
+    int i, count, v, min_dist;
+
+    for (i = 1; i <= n; i++) {
+        dist[i] = INFINITY;
+        visited[i] = 0;
+        parent[i] = -1;
+    }
+    dist[startnode] = 0;
+
+    for (count = 1; count < n; count++) {
+        min_dist = INFINITY;
+        v = -1;
+        for (i = 1; i <= n; i++) {
+} 
